@@ -94,8 +94,9 @@ Resources:
     Properties:
       FunctionName: !Sub "OpenObserve_Processor-${AWS::StackName}"
       Handler: index.handler
-      Runtime: python3.9
+      Runtime: python3.13
       Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 60
       Environment:
         Variables:
           HttpEndpointName: !Sub "OpenObserve_Firehose-${AWS::StackName}"
